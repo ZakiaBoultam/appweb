@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar'; // Assurez-vous que le chemin est correct
 import { Link } from 'react-router-dom'; // Pour les liens
-
+import ProposerCours from '../../Components/ProposerCours';
 const McqSemestre4 = () => { // Renommez la fonction pour correspondre à l'exportation attendue
   // Tableau de données des cours
   const courses = [
@@ -38,6 +38,10 @@ const McqSemestre4 = () => { // Renommez la fonction pour correspondre à l'expo
           </div>
         ))}
       </div>
+      <div className="proposer-cours-section">
+  <ProposerCours filiere="Matériaux Contrôle Qualité" niveau="Semestre 4" courses={courses} />
+</div>
+
     </div>
   );
 };

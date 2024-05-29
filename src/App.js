@@ -12,12 +12,8 @@ import Navbar from "./Components/Navbar";
 import Authentification from './Pages/Authentification';
 import Forum from './Pages/Forum';
 import Rechercher from './Components/Rechercher';
-import Admin from './Pages/Admin';
-import AdminUsers from './Pages/Admin/AdminUsers';
-import AdminDocuments from './Pages/Admin/AdminDocuments';
-import Professeur from './Pages/Professeur';
-import Etudiant from './Pages/Etudiant';
-
+import Admin from "./Pages/Utilisateurs/Admin";
+import Professeur from "./Pages/Utilisateurs/Professeur";
 
 // Import for tronc-commun semesters
 import TroncCommunSemestre1 from './Pages/tronc-commun/semestre1';
@@ -84,6 +80,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/authentification" element={<Authentification />} />
+        <Route path="/admin" element={user && isAdmin ? <Admin /> : <Navigate to="/authentification" />} />
+        <Route path="/professeur" element={user && isProfesseur ? <Professeur /> : <Navigate to="/authentification" />} />
+
         {!user ? (
           <Route path="/" element={<Navigate to="/authentification" replace />} />
         ) : (
@@ -99,13 +98,7 @@ function App() {
             <Route path="/rechercher" element={<PageWithNavbar Component={Rechercher} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />} />
             <Route path="/forum" element={<PageWithNavbar Component={Forum} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />} />
 
-            {isAdmin() && (
-              <>
-                <Route path="/admin" element={<PageWithNavbar Component={Admin} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />} />
-                <Route path="/admin/users" element={<PageWithNavbar Component={AdminUsers} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />} />
-                <Route path="/admin/documents" element={<PageWithNavbar Component={AdminDocuments} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />} />
-              </>
-            )}
+            
 
             {/*tronc-commun*/}
             <Route path="/tronc-commun/semestre1" element={<PageWithNavbar Component={TroncCommunSemestre1} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />} />
@@ -209,6 +202,8 @@ function MainApp({ isSidebarOpen, toggleSidebar }) {
       <Calendrier />
       <Contact />
       <Routes>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/professeur" element={<isProfesseur />} />
         <Route path="/app" element={<Accueil />} />
         <Route path="/a-propos" element={<A_propos />} />
         <Route path="/cours" element={<Cours />} />

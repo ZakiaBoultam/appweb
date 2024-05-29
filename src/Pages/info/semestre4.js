@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from '../../Components/Navbar'; 
-import { Link } from 'react-router-dom'; // Pour les liens
-import ProposerCours from '../../Components/ProposerCours'; 
+import Navbar from '../../Components/Navbar';
+import { Link } from 'react-router-dom';
+import ProposerCours from '../../Components/ProposerCours';
 
 const GénieInformatiqueSemestre4 = () => { 
   // Tableau de données des cours
@@ -20,6 +20,7 @@ const GénieInformatiqueSemestre4 = () => {
     { id: 12, title: 'Simulation discrète', description: 'Description du cours 1' },
     { id: 13, title: 'Machine learning', description: 'Description du cours 1' },
   ];
+
   return (
     <div className="formation-page">
       {/* Navbar */}
@@ -37,11 +38,11 @@ const GénieInformatiqueSemestre4 = () => {
           </div>
         ))}
       </div>
+
       {/* Ajouter le composant ProposerCours */}
       <div className="proposer-cours-section">
-        <ProposerCours filiere="Génie Informatique" niveau="Semestre 4" />
+        <ProposerCours filiere="Génie Informatique" niveau="Semestre 4" courses={courses} />
       </div>
-      
     </div>
   );
 };

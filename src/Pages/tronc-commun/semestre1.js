@@ -37,6 +37,7 @@ const Semestre1 = () => {
           </div>
         ))}
       </div>
+  
     </div>
   );
 };

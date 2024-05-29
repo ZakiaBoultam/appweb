@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { fr } from 'date-fns/locale';
 import calendrierImage from '../Assets/Calendrier_ENSMR.png'; // Import de l'image
+import CarouselComponent from './CarouselComponent';
+import { SiPinboard } from 'react-icons/si';
 
 const Calendrier = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -41,6 +43,12 @@ const Calendrier = () => {
         <a href={calendrierImage} download="Calendrier_ENSMR.png" className="secondary-button">
           Cliquez pour télécharger le calendrier ENSMR 2024
         </a>
+      </div>
+      <div class="space"></div>
+      <p className="primary-subheading">Témoiganges</p>
+      <h1 className="primary-heading">Découvrez les témoignages inspirants de nos élèves et professeurs :</h1>
+      <div className="carousel-wrapper">
+          <CarouselComponent />
       </div>
     </div>
   );

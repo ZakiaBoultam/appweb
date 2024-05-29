@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
@@ -10,18 +10,21 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = (email, password, filiere, niveau, role) => {
-    // Exemples de mots de passe pour chaque rôle
-    const passwords = {
-      admin: "admin123",
-      professeur: "prof123",
-      etudiant: "etud123",
-    };
+    return new Promise((resolve, reject) => {
+      // Exemples de mots de passe pour chaque rôle
+      const passwords = {
+        admin: "admin123",
+        professeur: "prof123",
+        etudiant: "etud123",
+      };
 
-    if (password === passwords[role]) {
-      setUser({ email, filiere, niveau, role });
-    } else {
-      alert("Mot de passe incorrect");
-    }
+      if (password === passwords[role]) {
+        setUser({ email, filiere, niveau, role });
+        resolve(); // Resolve the promise on successful login
+      } else {
+        reject("Mot de passe incorrect"); // Reject the promise on failed login
+      }
+    });
   };
 
   const logout = () => {

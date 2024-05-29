@@ -8,19 +8,29 @@ function Authentification() {
   const navigate = useNavigate();
   const { login } = useAuth();
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); // Nouvel état pour le mot de passe
+  const [password, setPassword] = useState('');
   const [niveau, setNiveau] = useState('');
   const [filiere, setFiliere] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
-  const [role, setRole] = useState('');  // Ajoutez l'état pour le rôle
+  const [role, setRole] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (email.endsWith('@enim.ac.ma')) {
       setIsValidEmail(true);
-      login(email, password, filiere, niveau, role);  // Passez le mot de passe à la fonction login
-      navigate('/app');
+      try {
+        await login(email, password, filiere, niveau, role);
+        if (role === 'admin') {
+          navigate('/admin');
+        } else if (role === 'professeur') {
+          navigate('/professeur');
+        } else {
+          navigate('/app');
+        }
+      } catch (error) {
+        console.error("Login failed", error);
+      }
     } else {
       setIsValidEmail(false);
     }

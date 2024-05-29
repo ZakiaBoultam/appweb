@@ -41,10 +41,10 @@ const GénieIndustrielSemestre3 = () => { // Renommez la fonction pour correspon
         ))}
       </div>
       
-      {/* Ajouter le composant ProposerCours */}
       <div className="proposer-cours-section">
-        <ProposerCours filiere="Génie Industriel" niveau="Semestre 3" />
-      </div>
+  <ProposerCours filiere="Génie Industriel" niveau="Semestre 3" courses={courses} />
+</div>
+
     </div>
   );
 };

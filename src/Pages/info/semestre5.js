@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar'; // Assurez-vous que le chemin est correct
 import { Link } from 'react-router-dom'; // Pour les liens
-
+import ProposerCours from '../../Components/ProposerCours';
 const GénieInformatiqueSemestre5 = () => {
   // Tableau de données des cours pour l'option Ingénierie de la Digitalisation
-  const digitalisationCourses = [
+  const courses = [
     { id: 1, title: "Système d'Information à Base Microservices" },
     { id: 2, title: 'Projet Fédérateur' },
     { id: 3, title: 'Cybersécurité' },
@@ -15,11 +15,7 @@ const GénieInformatiqueSemestre5 = () => {
     { id: 8, title: 'Robotic Process Automation-RPA' },
     { id: 9, title: 'Plateformes Big Data' },
     { id: 10, title: 'Visualisation de Données' },
-    { id: 11, title: 'Business Intelligence - BI' }
-  ];
-
-  // Tableau de données des cours pour l'option Ingénierie des Données
-  const dataEngineeringCourses = [
+    { id: 11, title: 'Business Intelligence - BI' },
     { id: 15, title: 'DataOps' },
     { id: 16, title: 'Projet Fédérateur' },
     { id: 17, title: 'Cybersécurité' },
@@ -39,7 +35,7 @@ const GénieInformatiqueSemestre5 = () => {
 
       <h2 className="option-heading">Option Ingénierie de la Digitalisation</h2>
       <div className="course-cards">
-        {digitalisationCourses.map(course => (
+        {courses.map(course => (
           <div key={course.id} className="course-card">
             <h3>{course.title}</h3>
             <Link to={`/cours/${course.id}`}>Voir plus</Link>
@@ -49,13 +45,17 @@ const GénieInformatiqueSemestre5 = () => {
 
       <h2 className="option-heading">Option Ingénierie des Données</h2>
       <div className="course-cards">
-        {dataEngineeringCourses.map(course => (
+        {courses.map(course => (
           <div key={course.id} className="course-card">
             <h3>{course.title}</h3>
             <Link to={`/cours/${course.id}`}>Voir plus</Link>
           </div>
         ))}
       </div>
+      <div className="proposer-cours-section">
+        <ProposerCours filiere="Génie Informatique" niveau="Semestre 5" courses={courses} />
+      </div>
+
     </div>
   );
 };

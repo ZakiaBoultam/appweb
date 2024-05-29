@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar'; // Ensure the path is correct
 import { Link } from 'react-router-dom'; // For links
-
+import ProposerCours from '../../Components/ProposerCours';
 const GénieCivilSemestre5 = () => {
-  const routeOuvragesHydrauliques = [
+  const courses = [
     { id: 1, title: 'Hydraulique des Puits et Tranchés', description: 'Description du cours' },
     { id: 2, title: 'Modélisation des Écouls Souterrains', description: 'Description du cours' },
     { id: 3, title: 'Tracés Routiers', description: 'Description du cours' },
@@ -17,9 +17,6 @@ const GénieCivilSemestre5 = () => {
     { id: 11, title: 'Barrage et Ouvrages Annexes', description: 'Description du cours' },
     { id: 12, title: 'Réglementation en BTP', description: 'Description du cours' },
     { id: 13, title: 'Gestion des Marchés Publics', description: 'Description du cours' },
-  ];
-
-  const genieDesConstructions = [
     { id: 14, title: 'Calcul des Structures des Bâtiments', description: 'Description du cours' },
     { id: 15, title: 'Efficacité Énergétique dans le Bâtiment', description: 'Description du cours' },
     { id: 16, title: 'Béton Précontraint', description: 'Description du cours' },
@@ -32,9 +29,6 @@ const GénieCivilSemestre5 = () => {
     { id: 23, title: 'Modélisation des Écouls Souterrains', description: 'Description du cours' },
     { id: 24, title: 'Réglementation en BTP', description: 'Description du cours' },
     { id: 25, title: 'Gestion des Marchés Publics', description: 'Description du cours' },
-  ];
-
-  const genieMinier = [
     { id: 26, title: 'Hydraulique des Puits et Tranchés', description: 'Description du cours' },
     { id: 27, title: 'Modélisation des Écouls Souterrains', description: 'Description du cours' },
     { id: 28, title: 'Conception et Calcul des Fondations', description: 'Description du cours' },
@@ -64,7 +58,7 @@ const GénieCivilSemestre5 = () => {
       <h2 className="secondary-heading">Route et Ouvrages Hydrauliques</h2>
       {/* Cases cliquables pour les cours */}
       <div className="course-cards">
-        {routeOuvragesHydrauliques.map(course => (
+        {courses.map(course => (
           <div key={course.id} className="course-card">
             <h3>{course.title}</h3>
             <p>{course.description}</p>
@@ -77,7 +71,7 @@ const GénieCivilSemestre5 = () => {
       <h2 className="secondary-heading">Génie des Constructions</h2>
       {/* Cases cliquables pour les cours */}
       <div className="course-cards">
-        {genieDesConstructions.map(course => (
+        {courses.map(course => (
           <div key={course.id} className="course-card">
             <h3>{course.title}</h3>
             <p>{course.description}</p>
@@ -90,7 +84,7 @@ const GénieCivilSemestre5 = () => {
       <h2 className="secondary-heading">Génie Minier</h2>
       {/* Cases cliquables pour les cours */}
       <div className="course-cards">
-        {genieMinier.map(course => (
+        {courses.map(course => (
           <div key={course.id} className="course-card">
             <h3>{course.title}</h3>
             <p>{course.description}</p>
@@ -99,6 +93,10 @@ const GénieCivilSemestre5 = () => {
           </div>
         ))}
       </div>
+      <div className="proposer-cours-section">
+  <ProposerCours filiere="Génie Civil Minier" niveau="Semestre 5" courses={courses} />
+</div>
+
     </div>
   );
 };

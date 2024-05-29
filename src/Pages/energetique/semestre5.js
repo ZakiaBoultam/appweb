@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar'; // Assurez-vous que le chemin est correct
 import { Link } from 'react-router-dom'; // Pour les liens
-
+import ProposerCours from '../../Components/ProposerCours';
 const GenieEnergetiqueSemestre5 = () => {
   // Tableau de données des cours
   const courses = [
@@ -35,6 +35,11 @@ const GenieEnergetiqueSemestre5 = () => {
           </div>
         ))}
       </div>
+      <div className="proposer-cours-section">
+  <ProposerCours filiere="Génie Energétique" niveau="Semestre 5" courses={courses} />
+</div>
+
+
     </div>
   );
 };

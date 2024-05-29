@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar'; // Ensure the path is correct
 import { Link } from 'react-router-dom'; // For links
-
+import ProposerCours from '../../Components/ProposerCours';
 const EnvironnementSécuritéIndustrielleSemestre5 = () => {
   const courses = [
     { id: 1, title: 'Étude d\'Impact sur l\'Environnement', description: 'Description du cours' },
@@ -37,6 +37,10 @@ const EnvironnementSécuritéIndustrielleSemestre5 = () => {
           </div>
         ))}
       </div>
+      <div className="proposer-cours-section">
+  <ProposerCours filiere="Environnement Sécurité Industrielle" niveau="Semestre 5" courses={courses} />
+</div>
+
     </div>
   );
 };

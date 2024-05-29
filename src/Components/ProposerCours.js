@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ProposerCours = ({ filiere, niveau }) => {
-  const [title, setTitle] = useState('');
+const ProposerCours = ({ filiere, niveau, courses }) => {
+  const [selectedCourse, setSelectedCourse] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
 
@@ -10,7 +10,7 @@ const ProposerCours = ({ filiere, niveau }) => {
     e.preventDefault();
     
     const formData = new FormData();
-    formData.append('title', title);
+    formData.append('title', selectedCourse);
     formData.append('description', description);
     formData.append('file', file);
     formData.append('filiere', filiere);
@@ -30,13 +30,17 @@ const ProposerCours = ({ filiere, niveau }) => {
       <h2>Proposer un Cours</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Titre du Cours</label>
-          <input 
-            type="text" 
-            value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
-            required 
-          />
+          <label>Matière</label>
+          <select 
+            value={selectedCourse} 
+            onChange={(e) => setSelectedCourse(e.target.value)} 
+            required
+          >
+            <option value="" disabled>Choisissez une matière</option>
+            {courses.map(course => (
+              <option key={course.id} value={course.title}>{course.title}</option>
+            ))}
+          </select>
         </div>
         <div>
           <label>Description du Cours</label>

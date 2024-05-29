@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar'; // Assurez-vous que le chemin est correct
 import { Link } from 'react-router-dom'; // Pour les liens
+import ProposerCours from '../../Components/ProposerCours';
 
 const EfficaciteEnergetiqueSemestre5 = () => { // Renommez la fonction pour correspondre à l'exportation attendue
   // Tableau de données des cours
@@ -33,6 +34,10 @@ const EfficaciteEnergetiqueSemestre5 = () => { // Renommez la fonction pour corr
           </div>
         ))}
       </div>
+      <div className="proposer-cours-section">
+  <ProposerCours filiere="Efficacité Energétique Intégration Energies Renouvelables" niveau="Semestre 5" courses={courses} />
+</div>
+
     </div>
   );
 };
